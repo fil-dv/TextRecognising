@@ -1,0 +1,15 @@
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\WindowsFormsFace.exe.config
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\WindowsFormsFace.exe
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\WindowsFormsFace.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.csprojResolveAssemblyReference.cache
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.Forms.Form_SetSettings.resources
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.Form_main.resources
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.Properties.Resources.resources
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.csproj.GenerateResource.cache
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.csproj.CoreCompileInputs.cache
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.exe
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DataSetCreater.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DataSetCreater.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.csproj.CopyComplete
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.Forms.Form_Create_DataSet.resources

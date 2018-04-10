@@ -1,0 +1,6 @@
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetCreater\bin\Debug\DataSetCreater.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetCreater\bin\Debug\DataSetCreater.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetCreater\obj\Debug\DataSetCreater.csprojResolveAssemblyReference.cache
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetCreater\obj\Debug\DataSetCreater.csproj.CoreCompileInputs.cache
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetCreater\obj\Debug\DataSetCreater.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetCreater\obj\Debug\DataSetCreater.pdb
