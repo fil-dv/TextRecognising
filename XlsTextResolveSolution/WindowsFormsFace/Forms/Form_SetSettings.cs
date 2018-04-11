@@ -14,9 +14,7 @@ namespace WindowsFormsFace.Forms
 {
     public partial class Form_SetSettings : Form
     {
-        string _path = "";
-
-        
+        string _path = "";        
 
         public Form_SetSettings()
         {

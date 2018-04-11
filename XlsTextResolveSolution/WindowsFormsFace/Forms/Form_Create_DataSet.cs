@@ -27,9 +27,10 @@ namespace WindowsFormsFace.Forms
             DataSetManager.GetSettings(ref path, ref depth, ref max);
             if (path != "" && depth != -1 && max != -1)
             {
-                label_path.Text = path;
-                label_cells_count.Text = depth.ToString();
-                label_max.Text = max.ToString();
+                toolStrip_depth.Text = depth.ToString(); 
+                toolStrip_path.Text = path;
+                toolStrip_max_count.Text = max.ToString();
+                toolStrip_count.Text = "0";
             }
             else
             {
@@ -39,7 +40,8 @@ namespace WindowsFormsFace.Forms
 
         private void button_start_Click(object sender, EventArgs e)
         {
-
+            DataSetManager.ParseFS(toolStrip_path.Text);
+            MessageBox.Show("Готово!");
         }
     }
 }

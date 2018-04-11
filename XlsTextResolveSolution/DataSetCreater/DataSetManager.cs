@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DataSetCreater.Infrstr;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace DataSetCreater
 {
@@ -39,7 +41,90 @@ namespace DataSetCreater
             rowsDepth = DataSetSettings.XlsRowsDepth;
             maxSetCount = DataSetSettings.MaxEntityCount;
         }
-            
+
+        public static void ParseFS(string path)
+        {
+            try
+            {
+                var dirs = Directory.EnumerateDirectories(path);
+                foreach (var dir in dirs)
+                {
+                    List<FilesPair> filesForParse = GetFilePairsForParse(dir);
+                    foreach (var item in filesForParse)
+                    {
+                        InsertDataToXml(item.PathToImp, item.PathToCtrl);
+                    }
+                    ParseFS(dir);
+                }                
+            }
+            catch (Exception ex)
+            {
+                Logger.AddRecordToLog(ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private static void InsertDataToXml(string pathToImp, string pathToCtrl)
+        {
+            try
+            {
+                string str = "----------------------------" + 
+                            Environment.NewLine + 
+                            pathToImp + 
+                            Environment.NewLine +
+                            pathToCtrl + 
+                            Environment.NewLine + 
+                            "----------------------------";
+                Logger.AddRecordToLog(str);
+            }
+            catch (Exception ex)
+            {
+                Logger.AddRecordToLog(ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private static List<FilesPair> GetFilePairsForParse(string dirName)
+        {
+            List<FilesPair> fpList = new List<FilesPair>();
+            try
+            {                
+                var ctrlArr = Directory.GetFiles(dirName, "*.ctl"); // ищем все контролы
+                foreach (var item in ctrlArr)
+                {
+                    string csvName = GetCsvName(item);
+                    var ctllArr = Directory.GetFiles(dirName, csvName);
+                    if (ctllArr.Length > 0)
+                    {
+                        FilesPair fp = new FilesPair() { PathToImp = item, PathToCtrl = ctllArr[0] };
+                        fpList.Add(fp);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.AddRecordToLog(ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+            return fpList;
+        }
+
+        private static string GetCsvName(string path)
+        {
+            string csvName = "";
+            try
+            {
+                var lines = File.ReadAllLines(path);
+                string str = lines[1];
+                csvName = str.Substring(8, str.LastIndexOf('\'') - 8);
+            }
+            catch (Exception ex)
+            {
+                Logger.AddRecordToLog(ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+            return csvName;
+        }
     }
 
     

@@ -55,7 +55,7 @@
             // createDataSetToolStripMenuItem
             // 
             this.createDataSetToolStripMenuItem.Name = "createDataSetToolStripMenuItem";
-            this.createDataSetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createDataSetToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.createDataSetToolStripMenuItem.Text = "Create DataSet";
             this.createDataSetToolStripMenuItem.Click += new System.EventHandler(this.createDataSetToolStripMenuItem_Click);
             // 
@@ -67,6 +67,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xls helper";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
