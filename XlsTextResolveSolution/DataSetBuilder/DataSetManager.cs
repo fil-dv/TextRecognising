@@ -1,10 +1,10 @@
 ﻿using DataSetBuilder.Infrstr;
 using DataSetCreater.Infrstr;
 using Infrastructure.DataSetCreater;
-using LumenWorks.Framework.IO.Csv;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace DataSetCreater
@@ -66,21 +66,46 @@ namespace DataSetCreater
 
         private static void CsvParser(FilesPair pair)
         {
-            using (CsvReader csv = new CsvReader(new StreamReader(pair.PathToImp), false, ';'))
+            var lines = File.ReadAllLines(pair.PathToImp);
+            int rowCount = lines.Length;
+            int collCount = -1;
+            if (rowCount > 0)
             {
-                int fieldCount = csv.FieldCount;
-                string[] headers = csv.GetFieldHeaders();
-                string[] strArray = new string[fieldCount];
-
-                while (csv.ReadNextRecord())
-                {
-                    for (int i = 0; i < fieldCount; i++)
-                    {
-                        strArray[i] += (csv[i] + ";");
-                    }
-                    int p = 1;
-                }
+                string[] cells = lines[0].Split(';');
+                collCount = cells.Length;
             }
+            else
+            {
+                throw new Exception("Csv file is empty.");
+            }
+
+            Record[] recArr = new Record[collCount];
+            foreach (var item in recArr)
+            {                
+                item.CreateDate = File.GetCreationTime(pair.PathToImp);
+                item.Table = DataSetSettings.Table.ToString();
+                item.PathToCtrl = pair.PathToCtrl;
+            }
+
+            for (int i = 0; i < rowCount; i++)
+            {
+                string[] cells = lines[i].Split(';');
+                for (int j = 0; j < collCount; j++)
+                {
+                    recArr[j].Text += (cells[j] + ";");
+                }                
+            }
+        }
+
+        private static string ConvertEncoding(string str)
+        {
+            Encoding ANSI = Encoding.GetEncoding(1252);
+
+            byte[] ansiBytes = ANSI.GetBytes(str);
+            byte[] utf8Bytes = Encoding.Convert(ANSI, Encoding.UTF8, ansiBytes);
+
+            String utf8String = Encoding.UTF8.GetString(utf8Bytes);
+            return utf8String;
         }
 
         private static void ControlParser(FilesPair pair)

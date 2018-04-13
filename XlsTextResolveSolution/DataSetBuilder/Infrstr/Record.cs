@@ -8,7 +8,6 @@ namespace DataSetCreater.Infrstr
 {
     public class Record
     {
-        public string PathToImp { get; set; }
         public string PathToCtrl { get; set; }
         public DateTime CreateDate { get; set; }
         public string Text { get; set; }

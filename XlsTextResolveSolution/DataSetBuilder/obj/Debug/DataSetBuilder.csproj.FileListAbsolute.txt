@@ -9,6 +9,3 @@ D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\ob
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\obj\Debug\DataSetBuilder.csproj.CopyComplete
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\obj\Debug\DataSetBuilder.dll
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\obj\Debug\DataSetBuilder.pdb
-D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\LumenWorks.Framework.IO.dll
-D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\LumenWorks.Framework.IO.pdb
-D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\LumenWorks.Framework.IO.xml

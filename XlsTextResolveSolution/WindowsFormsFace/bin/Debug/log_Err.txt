@@ -1,0 +1,6 @@
+13.04.2018 17:03:47 
+Index was outside the bounds of the array.
+13.04.2018 17:19:16 
+Index was outside the bounds of the array.
+13.04.2018 17:31:23 
+Object reference not set to an instance of an object.

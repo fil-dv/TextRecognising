@@ -17,6 +17,3 @@ D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\Oracle.ManagedDataAccess.dll
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DbLayer.pdb
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DbLayer.dll.config
-D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\LumenWorks.Framework.IO.dll
-D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\LumenWorks.Framework.IO.pdb
-D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\LumenWorks.Framework.IO.xml
