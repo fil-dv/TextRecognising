@@ -97,9 +97,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataSetCreater\DataSetCreater.csproj">
-      <Project>{541fc527-71a3-4a4e-b221-e8d5aa567a0a}</Project>
-      <Name>DataSetCreater</Name>
+    <ProjectReference Include="..\DataSetBuilder\DataSetBuilder.csproj">
+      <Project>{db58f1ef-86f8-4223-b002-51dabf6e6f0f}</Project>
+      <Name>DataSetBuilder</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

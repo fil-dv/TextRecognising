@@ -9,7 +9,14 @@ D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.csproj.CoreCompileInputs.cache
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.exe
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.pdb
-D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DataSetCreater.dll
-D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DataSetCreater.pdb
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.csproj.CopyComplete
 D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\obj\Debug\WindowsFormsFace.Forms.Form_Create_DataSet.resources
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DataSetBuilder.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DataSetBuilder.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DbLayer.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DbLayer.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\DbLayer.dll.config
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\LumenWorks.Framework.IO.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\LumenWorks.Framework.IO.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\WindowsFormsFace\bin\Debug\LumenWorks.Framework.IO.xml

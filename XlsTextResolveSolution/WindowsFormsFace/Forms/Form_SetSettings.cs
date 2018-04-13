@@ -1,4 +1,5 @@
 ﻿using DataSetCreater;
+using Infrastructure.DataSetCreater;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +15,26 @@ namespace WindowsFormsFace.Forms
 {
     public partial class Form_SetSettings : Form
     {
-        string _path = "";        
+        string _path = "";
+        TableName _tableName;
 
         public Form_SetSettings()
         {
             InitializeComponent();
+            InitCombo();
+        }
+
+        private void InitCombo()
+        {
+            comboBox_tables.DataSource = Enum.GetValues(typeof(TableName));
         }
 
         private void checkBox_path_CheckedChanged(object sender, EventArgs e)
         {
-            button_ok.Enabled = true;
+            if (comboBox_tables.Text.Length > 0)
+            {
+                button_ok.Enabled = true;
+            }
         }
 
         private void button_open_Click(object sender, EventArgs e)
@@ -42,7 +53,7 @@ namespace WindowsFormsFace.Forms
 
         private void button_ok_Click(object sender, EventArgs e)
         {
-            DataSetManager.SetSettings(_path, numericUpDown_sells_number.Value, numericUpDown_max.Value);
+            DataSetManager.SetSettings(_path, _tableName);
             if (DataSetManager.IsSettingInit())
             {
                 Form_Create_DataSet form = new Form_Create_DataSet();
@@ -55,5 +66,12 @@ namespace WindowsFormsFace.Forms
                 MessageBox.Show("Settings is not valid...");
             }
         }
+
+        private void comboBox_tables_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Enum.TryParse<TableName>(comboBox_tables.SelectedValue.ToString(), out _tableName);
+        }
+
+
     }
 }

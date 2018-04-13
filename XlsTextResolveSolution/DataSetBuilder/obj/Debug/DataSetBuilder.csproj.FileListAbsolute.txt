@@ -1,0 +1,14 @@
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\DataSetBuilder.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\DataSetBuilder.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\DbLayer.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\DbLayer.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\DbLayer.dll.config
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\obj\Debug\DataSetBuilder.csprojResolveAssemblyReference.cache
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\obj\Debug\DataSetBuilder.csproj.CoreCompileInputs.cache
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\obj\Debug\DataSetBuilder.csproj.CopyComplete
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\obj\Debug\DataSetBuilder.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\obj\Debug\DataSetBuilder.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\LumenWorks.Framework.IO.dll
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\LumenWorks.Framework.IO.pdb
+D:\Dima\Programming\git\XslTextResolver\XlsTextResolveSolution\DataSetBuilder\bin\Debug\LumenWorks.Framework.IO.xml

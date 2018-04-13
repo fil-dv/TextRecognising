@@ -1,8 +1,10 @@
 ﻿using DataSetCreater;
+using DataSetCreater.Infrstr;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,14 +24,10 @@ namespace WindowsFormsFace.Forms
         private void InitControls()
         {
             string path = "";
-            decimal depth = -1;
-            decimal max = -1;
-            DataSetManager.GetSettings(ref path, ref depth, ref max);
-            if (path != "" && depth != -1 && max != -1)
+            DataSetManager.GetSettings(ref path);
+            if (path != "" )
             {
-                toolStrip_depth.Text = depth.ToString(); 
                 toolStrip_path.Text = path;
-                toolStrip_max_count.Text = max.ToString();
                 toolStrip_count.Text = "0";
             }
             else
@@ -40,8 +38,16 @@ namespace WindowsFormsFace.Forms
 
         private void button_start_Click(object sender, EventArgs e)
         {
-            DataSetManager.ParseFS(toolStrip_path.Text);
+            Logger.ClearLog();
+            DateTime start = DateTime.Now;
+            DataSetManager.ParseFS(toolStrip_path.Text);            
+            DateTime stop = DateTime.Now;
+            Logger.AddRecordToLog("Старт: " + start + Environment.NewLine +
+                                  "Стоп: " + stop + Environment.NewLine +
+                                  "Минуты: " + (stop - start).TotalMinutes + Environment.NewLine +
+                                  "Секунды: " + (stop - start).TotalSeconds);
             MessageBox.Show("Готово!");
+            Process.Start("notepad.exe", "log.txt");
         }
     }
 }
