@@ -12,7 +12,7 @@ namespace DataSetCreater
     public static class DataSetManager
     {        
         
-        //static int _counter = 0;
+        static int _counter = 0;
 
         public static bool SetSettings(string pathToFolder, TableName tableName)
         {
@@ -66,7 +66,7 @@ namespace DataSetCreater
 
         private static void CsvParser(FilesPair pair)
         {
-            var lines = File.ReadAllLines(pair.PathToImp);
+            var lines = File.ReadAllLines(pair.PathToImp, Encoding.Default);
             int rowCount = lines.Length;
             int collCount = -1;
             if (rowCount > 0)
@@ -80,8 +80,13 @@ namespace DataSetCreater
             }
 
             Record[] recArr = new Record[collCount];
+            for (int i = 0; i < collCount; i++)
+            {
+                recArr[i] = new Record();
+            }
+
             foreach (var item in recArr)
-            {                
+            {
                 item.CreateDate = File.GetCreationTime(pair.PathToImp);
                 item.Table = DataSetSettings.Table.ToString();
                 item.PathToCtrl = pair.PathToCtrl;
@@ -95,29 +100,58 @@ namespace DataSetCreater
                     recArr[j].Text += (cells[j] + ";");
                 }                
             }
+            ControlParser(pair, recArr);
         }
 
-        private static string ConvertEncoding(string str)
+        private static void ControlParser(FilesPair pair, Record[] records)
         {
-            Encoding ANSI = Encoding.GetEncoding(1252);
+            string[] lines = File.ReadAllLines(pair.PathToCtrl, Encoding.Default);
+            int rowCount = lines.Length;
+            int first = -1;
+            int last = -1;
+            GetFirstLastIndexes(lines, ref first, ref last);
+            int recCount = 0;
 
-            byte[] ansiBytes = ANSI.GetBytes(str);
-            byte[] utf8Bytes = Encoding.Convert(ANSI, Encoding.UTF8, ansiBytes);
-
-            String utf8String = Encoding.UTF8.GetString(utf8Bytes);
-            return utf8String;
+            if (first != -1 && last != -1)
+            {
+                for (int i = first; i < last; ++i)
+                {
+                    if (lines[i].Trim().Length < 1) continue;
+                    if (lines[i].Trim().Substring(0, 2) == "--") continue;
+                    int index = lines[i].IndexOf(',');
+                    string res = lines[i].Substring(0, index);
+                    records[recCount].DbField = res;
+                    recCount++;
+                }
+                string str = lines[last].Substring(0, lines[last].IndexOf("--")).Trim();
+                records[recCount].DbField = str;
+            }
+            foreach (var item in records)
+            {
+                InsertData(item, ++_counter);
+            }            
         }
 
-        private static void ControlParser(FilesPair pair)
-        {
 
+        private static void GetFirstLastIndexes(string[] arr, ref int first, ref int last)
+        {            
+            for (int i = 0; i < arr.Length; ++i)
+            {
+                if (arr[i] == "(")
+                {
+                    first = i + 1;
+                }
+                if (arr[i] == ")")
+                {
+                    last = i - 1;
+                }
+            }
         }
 
-        private static void InsertData(FilesPair rec, int count)
+        private static void InsertData(Record rec, int count)
         {
             try
             {
-
                 Logging(rec, count);                
             }
             catch (Exception ex)
@@ -127,24 +161,30 @@ namespace DataSetCreater
             }
         }
 
-        private static void Logging(FilesPair rec, int count)
+        private static void Logging(Record rec, int count)
         {
+            //string text = "";
+            //if (rec.Text.Length > 100)
+            //{
+            //    text = rec.Text.Substring(0, 100);
+            //}
+            //else
+            //{
+            //    text = rec.Text;
+            //}
+              
             string str = "---------------------------" +
-                            Environment.NewLine +
-                            rec.PathToImp +
                             Environment.NewLine +
                             rec.PathToCtrl +
                             Environment.NewLine +
-                            //rec.Table +
-                            //Environment.NewLine +
-                            //rec.CreateDate +
-                            //Environment.NewLine +
-                            //rec.Text.Substring(0, 100) +
-                            //Environment.NewLine +
-                            //rec.DbField +
-                            //Environment.NewLine +
-                            //count +
-                            //Environment.NewLine +
+                            rec.CreateDate +
+                            Environment.NewLine +
+                            (rec.Text.Length > 100 ? (rec.Text.Substring(0, 100)) : (rec.Text)) +
+                            Environment.NewLine +
+                            rec.DbField +
+                            Environment.NewLine +
+                            count +
+                            Environment.NewLine +
                             "----------------------------";
             Logger.AddRecordToLog(str);
         }
