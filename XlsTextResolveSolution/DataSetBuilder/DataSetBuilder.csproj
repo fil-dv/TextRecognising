@@ -49,6 +49,7 @@
     <Compile Include="Infrstr\Record.cs" />
     <Compile Include="Infrstr\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DbLayer\DbLayer.csproj">

@@ -1,5 +1,7 @@
-﻿using DataSetBuilder.Infrstr;
+﻿using DataSetBuilder;
+using DataSetBuilder.Infrstr;
 using DataSetCreater.Infrstr;
+using DbLayer;
 using Infrastructure.DataSetCreater;
 using System;
 using System.Collections.Generic;
@@ -10,9 +12,15 @@ using System.Windows.Forms;
 namespace DataSetCreater
 {
     public static class DataSetManager
-    {        
-        
+    {
+        static OracleConnect _connect;
         static int _counter = 0;
+
+        public static void CreateConnect()
+        {
+            _connect = new OracleConnect(Settings.ConectionString);
+            _connect.OpenConnect();
+        }
 
         public static bool SetSettings(string pathToFolder, TableName tableName)
         {
@@ -23,6 +31,7 @@ namespace DataSetCreater
                 DataSetSettings.PathToParseFolder = pathToFolder;
                 DataSetSettings.Table = tableName;
                 DataSetSettings.IsInitialise = true;
+                CreateConnect();
             }
             else
             {
@@ -123,15 +132,25 @@ namespace DataSetCreater
                     records[recCount].DbField = res;
                     recCount++;
                 }
-                string str = lines[last].Substring(0, lines[last].IndexOf("--")).Trim();
-                records[recCount].DbField = str;
+                if (!lines[last].Contains("\"")) // если константа, то игнорируем
+                {
+                    string str = "";
+                    if (lines[last].Contains("--"))
+                    {
+                        str = lines[last].Substring(0, lines[last].IndexOf("--")).Trim();
+                    }
+                    else
+                    {
+                        str = lines[last].Trim();
+                    }
+                    records[recCount].DbField = str;
+                }
             }
             foreach (var item in records)
             {
                 InsertData(item, ++_counter);
             }            
         }
-
 
         private static void GetFirstLastIndexes(string[] arr, ref int first, ref int last)
         {            
@@ -151,8 +170,11 @@ namespace DataSetCreater
         private static void InsertData(Record rec, int count)
         {
             try
-            {
+            {                
                 Logging(rec, count);                
+                string query = "insert into DIC t (t.id, t.create_date, t.text, t.db_field, t.path, t.table_name) " + 
+                "values(GENKA.GENKA_SEQUENCE.NEXTVAL, '" + rec.CreateDate.ToShortDateString() + "', '"  + (rec.Text.Length < 4000? rec.Text : rec.Text.Substring(0, 4000)) + "', '" + rec.DbField + "', '" + rec.PathToCtrl + "', '" + rec.Table + "')";
+                _connect.ExecCommand(query);
             }
             catch (Exception ex)
             {
@@ -162,17 +184,7 @@ namespace DataSetCreater
         }
 
         private static void Logging(Record rec, int count)
-        {
-            //string text = "";
-            //if (rec.Text.Length > 100)
-            //{
-            //    text = rec.Text.Substring(0, 100);
-            //}
-            //else
-            //{
-            //    text = rec.Text;
-            //}
-              
+        {              
             string str = "---------------------------" +
                             Environment.NewLine +
                             rec.PathToCtrl +
